@@ -14,6 +14,7 @@ namespace CW_Tasks_app_NetCore.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public TaskStatus Status { get; set; }
+        //public User User { get; set; }
     }
 
     public enum TaskStatus

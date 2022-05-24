@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CW_Tasks_app_NetCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace CW_Tasks_app_NetCore.Data
         }
 
         public DbSet<CW_Tasks_app_NetCore.Models.Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

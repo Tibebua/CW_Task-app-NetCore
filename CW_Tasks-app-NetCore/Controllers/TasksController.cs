@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CW_Tasks_app_NetCore.Data;
 using CW_Tasks_app_NetCore.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace CW_Tasks_app_NetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TasksController : ControllerBase
     {
         private readonly TaskDbContext _context;
@@ -30,6 +32,7 @@ namespace CW_Tasks_app_NetCore.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetTask(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
